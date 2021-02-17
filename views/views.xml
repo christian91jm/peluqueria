@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="peluqueria.list">
+      <field name="name">peluqueria list</field>
+      <field name="model">peluqueria.peluqueria</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="peluqueria.action_window">
+      <field name="name">peluqueria window</field>
+      <field name="res_model">peluqueria.peluqueria</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="peluqueria.action_server">
+      <field name="name">peluqueria server</field>
+      <field name="model_id" ref="model_peluqueria_peluqueria"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="peluqueria" id="peluqueria.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="peluqueria.menu_1" parent="peluqueria.menu_root"/>
+    <menuitem name="Menu 2" id="peluqueria.menu_2" parent="peluqueria.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="peluqueria.menu_1_list" parent="peluqueria.menu_1"
+              action="peluqueria.action_window"/>
+    <menuitem name="Server to list" id="peluqueria" parent="peluqueria.menu_2"
+              action="peluqueria.action_server"/>
+-->
+  </data>
+</odoo>

@@ -1,0 +1,42 @@
+<odoo>
+    <data>
+      <!-- explicit list view definition -->
+      <record model="ir.ui.view" id="peluqueria.list_venta_servicio">
+        <field name="name">venta servicio list</field>
+        <field name="model">peluqueria.venta_servicio_model</field>
+        <field name="arch" type="xml">
+          <tree>
+            <field name="facturas_id"/>
+            <field name="servicios_id"/>
+            
+          </tree>
+        </field>
+      </record>
+      
+      <record model="ir.ui.view" id="peluqueria.form_venta_producto">
+        <field name="name">venta servicio form</field>
+        <field name="model">peluqueria.venta_servicio_model</field>
+        <field name="arch" type="xml">
+          <form>
+            <sheet>
+              <group>
+                <field name="facturas_id"/>
+                <field name="servicios_id"/>
+              </group>
+            </sheet>
+          </form>
+        </field>
+      </record>
+      
+  
+      <!-- actions opening views on models -->
+      
+      <record model="ir.actions.act_window" id="peluqueria.venta_servicio_action_window">
+        <field name="name">venta servicio window</field>
+        <field name="res_model">peluqueria.venta_servicio_model</field>
+        <field name="view_mode">tree,form</field>
+      </record>
+      
+      
+    </data>
+  </odoo>

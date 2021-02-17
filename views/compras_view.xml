@@ -1,0 +1,95 @@
+<odoo>
+    <data>
+      <!-- explicit list view definition -->
+      
+  
+      <record model="ir.ui.view" id="peluqueria.listado_compras_tree">
+        <field name="name">Compras</field>
+        <field name="model">peluqueria.compras_model</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="id_compra" />
+                <field name="producto" />
+                <field name="descripcion" />
+                <field name="cantidad" />
+                <field name="fechaPedido" />
+                <field name="empleado" />
+                <field name="total" />
+                
+            </tree>
+  
+
+        </field>
+      </record>
+  
+      <record model="ir.ui.view" id="peluqueria_compras_form">
+        <field name="name">Peluqueria Compras Form</field>
+        <field name="model">peluqueria.compras_model</field>
+        <field name="arch" type="xml">
+          <form string="Nuevo Pedido">
+            <header>
+                <button name="actualizaStock" type="object" confirm="Desea actualizar el stock de productos" string="Actualiza Stock" class="oe_highlight" />
+            </header>
+
+            <sheet>
+
+              <group name="1">
+                <field name="id_compra" />
+                <field name="producto" />
+                <field name="descripcion" />
+                <field name="cantidad" />
+                <field name="fechaPedido" />
+                <field name="empleado" />
+
+
+                
+                
+                
+                
+              </group>
+              
+            </sheet>
+          </form>
+        </field>
+      </record>
+      <record model="ir.ui.view" id="peluqueria.compras_model_search">
+        <field name="name">Filtros de Compras</field>
+        <field name="model">peluqueria.compras_model</field>
+        <field name="arch" type="xml">
+          <search>
+            <field name="fechaPedido" />
+            <field name="empleado" />
+            <field name="producto" />
+            <field name="cantidad" />
+            <filter string="Historico de Registros Anual" name="HistAnualReg" domain="[('active','=',False)]" />
+            <group expand="0" string="Group By">
+              <filter string="Empleado" name="empleado" context="{'group_by': 'empleado'}"></filter>
+              <filter string="Productos" name="producto" context="{'group_by': 'producto'}"></filter>
+            </group>
+  
+          </search>
+        </field>
+  
+      </record>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+  
+  
+      <!-- actions opening views on models -->
+      <record model="ir.actions.act_window" id="peluqueria.action_window_compras">
+        <field name="name">Ventana de Compras</field>
+        <field name="res_model">peluqueria.compras_model</field>
+        <field name="view_mode">tree,form</field>
+      </record>
+  
+     
+    </data>
+  </odoo>

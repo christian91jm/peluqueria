@@ -1,0 +1,73 @@
+<odoo>
+    <data>
+      <!-- explicit list view definition -->
+      
+  
+      <record model="ir.ui.view" id="peluqueria.listado_productos_tree">
+        <field name="name">Productos</field>
+        <field name="model">peluqueria.productos_model</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="id_producto" />
+                <field name="name"/>
+                <field name="descripcion" />
+                <field name="stock" />
+                <field name="precio" />
+                
+                
+            </tree>
+  
+
+        </field>
+      </record>
+  
+      <record model="ir.ui.view" id="peluqueria_productos_form">
+        <field name="name">Peluqueria Productos Form</field>
+        <field name="model">peluqueria.productos_model</field>
+        <field name="arch" type="xml">
+          <form string="Nuevo Producto">
+            <header>
+            </header>
+
+            <sheet>
+
+              <group name="1">
+                <field name="id_producto" />
+                <field name="name"/>
+                <field name="descripcion" />
+                <field name="stock" />
+                <field name="precio" />
+
+                
+                
+                
+                
+              </group>
+              
+            </sheet>
+          </form>
+        </field>
+      </record>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+  
+  
+      <!-- actions opening views on models -->
+      <record model="ir.actions.act_window" id="peluqueria.action_window_productos">
+        <field name="name">Ventana de Productos</field>
+        <field name="res_model">peluqueria.productos_model</field>
+        <field name="view_mode">tree,form</field>
+      </record>
+  
+      
+    </data>
+  </odoo>

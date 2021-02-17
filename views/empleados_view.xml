@@ -1,0 +1,127 @@
+<odoo>
+    <data>
+      <!-- explicit list view definition -->
+      
+  
+      <record model="ir.ui.view" id="peluqueria.listado_empleados_tree">
+        <field name="name">Empleados</field>
+        <field name="model">peluqueria.empleados_model</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="id_empleado" />
+                <field name="dni" groups="peluqueria.peluqueria_group_adm"/>
+                <field name="name" />
+                <field name="apellidos" />
+                <field name="fechaAlta" />
+                <field name="salarioBase" />
+                <field name="email" />
+                <field name="telefono" />
+                
+            </tree>
+  
+
+        </field>
+      </record>
+  
+      <record model="ir.ui.view" id="peluqueria_empleados_form">
+        <field name="name">Peluqueria Empleados Form</field>
+        <field name="model">peluqueria.empleados_model</field>
+        <field name="arch" type="xml">
+          <form string="Nuevo Empleado">
+            <header>
+            </header>
+
+            <sheet>
+
+              <group name="1">
+                <field name="id_empleado" /> 
+                <field name="dni"/>
+                <field name="name" />
+                <field name="apellidos" />
+                <field name="fechaAlta" />
+                <field name="salarioBase" widget="monetary"/>
+                
+              </group>
+              <group name="2">
+                <field name="foto" widget="image" />
+                <field name="telefono" widget="phone" />
+                <field name="email" widget="email" />
+              </group>
+            </sheet>
+          </form>
+        </field>
+      </record>
+      
+      <record model="ir.ui.view" id="peluqueria.graph_empleado">
+        <field name="name">Gráfico de Empleados</field>
+        <field name="model">peluqueria.empleados_model</field>
+        <field name="arch" type="xml">
+            <graph type="bar">
+                
+                <field name="name" type="row"/>
+                <field name="salarioBase" type="measure"/>
+                
+                
+            </graph>
+        </field>
+      </record>
+      <record model="ir.ui.view" id="peluqueria.kanban_empleados">
+        <field name="name">Listado de Empleados</field>
+        <field name="model">peluqueria.empleados_model</field>
+        <field name="arch" type="xml">
+          <kanban class="o_res_partner_kanban">
+            <field name="dni" />
+            <field name="name" />
+            <field name="foto"/>
+            <field name="apellidos" />
+            <field name="email"/>
+            <field name="telefono" />
+            <templates>
+              <t t-name="kanban-box">
+                <div t-attf-class="oe_kanban_global_click">
+                  <div class="o_kanban_image">
+                    <field name="foto" nolabel="1" widget="image" class="oe_right oe_avatar" />
+                  </div>
+                  <div class="oe_kanban_details">
+                    <strong>
+                      <field name="apellidos" class="oe_inline" />
+                      <field name="name" class="oe_inline" />
+                    </strong>
+                    <div t-if="record.dni.value">
+                      <t t-esc="record.dni.value" />
+                    </div>
+                    
+                    <div t-if="record.telefono.value">
+                      <t t-esc="record.telefono.value" />
+                    </div>
+                    <div t-if="record.email.value">
+                      <t t-esc="record.email.value" />
+                    </div>
+                  </div>
+                </div>
+              </t>
+            </templates>
+          </kanban>
+        </field>
+      </record>
+  
+  
+  
+  
+  
+  
+  
+  
+      
+  
+  
+      <!-- actions opening views on models -->
+      <record model="ir.actions.act_window" id="peluqueria.action_window_empleados">
+        <field name="name">Ventana de Empleados</field>
+        <field name="res_model">peluqueria.empleados_model</field>
+        <field name="view_mode">tree,form,graph,kanban</field>
+      </record>
+  
+      
+    </data>
+  </odoo>

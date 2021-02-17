@@ -1,0 +1,25 @@
+<odoo>
+    <data>
+        <!-- Top menu item -->
+
+        <menuitem name="Peluqueria" id="peluqueria.menu_root" />
+
+        <!-- menu categories -->
+
+        <menuitem name="Personas" id="peluqueria.menu_personas" parent="peluqueria.menu_root" />
+        <menuitem name="Departamentos" id="peluqueria.menu_departamentos" parent="peluqueria.menu_root" />
+
+        <!-- actions -->
+        
+        <menuitem name="Empleados" id="peluqueria.menu_empleados_list" parent="peluqueria.menu_personas" action="peluqueria.action_window_empleados" />
+        <menuitem name="Clientes" id="peluqueria.menu_clientes_list" parent="peluqueria.menu_personas" action="peluqueria.action_window_clientes" groups="peluqueria_group_adm"/>
+        <menuitem name="Compras" id="peluqueria.menu_compras_list" parent="peluqueria.menu_departamentos" action="peluqueria.action_window_compras" />
+        <menuitem name="Productos" id="peluqueria.menu_productos_list" parent="peluqueria.menu_departamentos" action="peluqueria.action_window_productos" />
+        <menuitem name="Servicios" id="peluqueria.menu_servicios_list" parent="peluqueria.menu_departamentos" action="peluqueria.action_window_servicios" />
+        <menuitem name="Venta Producto" id="peluqueria.menu_venta_producto_list" parent="peluqueria.menu_departamentos" action="peluqueria.venta_producto_action_window" />
+        <menuitem name="Venta Servicio" id="peluqueria.menu_venta_servicio_list" parent="peluqueria.menu_departamentos" action="peluqueria.venta_servicio_action_window" />
+        <menuitem name="Facturas" id="peluqueria.menu_facturas_list" parent="peluqueria.menu_departamentos" action="peluqueria.facturas_action_window" />
+        
+
+    </data>
+</odoo>
