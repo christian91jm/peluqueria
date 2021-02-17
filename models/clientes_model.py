@@ -17,5 +17,5 @@ class clientes_model(models.Model):
     email = fields.Char(string="Email", required=True)
     fechaAlta = fields.Date(string="Fecha", default=lambda self: datetime.today())
     facturas = fields.One2many("peluqueria.facturas_model", "cliente", string="Facturas")
-    
+    #añadir un numero de socio desde herencia
    
